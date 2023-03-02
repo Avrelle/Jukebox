@@ -1,0 +1,10 @@
+vich_uploader:
+  db_driver: orm
+  
+  mappings:
+    music:
+      uri_prefix: /public/images/cover
+      upload_destination: '%kernel.project_dir%/public/images/cover'
+    song:  
+      uri_prefix: /public/audio
+      upload_destination: '%kernel.project_dir%/audio/song'
