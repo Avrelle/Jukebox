@@ -30,7 +30,7 @@ class MusicCrudController extends AbstractCrudController
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false),
             AssociationField::new('category'),
-            ImageField::new('img_song')
+            ImageField::new('imgSong')
             ->setBasePath('images/cover')
             ->setUploadDir('public/images/cover')
             ->setUploadedFileNamePattern('[randomhash].[extension]')

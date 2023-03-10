@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MusicRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -28,7 +30,7 @@ class Music
     private ?Category $category = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $img_song = null;
+    private ?string $imgSong = null;
 
     /**
      * @Vich\UploadableField(mapping="music", fileNameProperty="image")
@@ -40,6 +42,14 @@ class Music
      * @var File
      */
     private $songFile;
+
+    #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'favoris')]
+    private Collection $favoris;
+
+    public function __construct()
+    {
+        $this->favoris = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -100,12 +110,12 @@ class Music
 
     public function getImgSong(): ?string
     {
-        return $this->img_song;
+        return $this->imgSong;
     }
 
-    public function setImgSong(string $img_song): self
+    public function setImgSong(string $imgSong): self
     {
-        $this->img_song = $img_song;
+        $this->imgSong = $imgSong;
 
         return $this;
     }
@@ -126,6 +136,31 @@ class Music
          $this->imageFile = $imageFile;
     }
 
+    /**
+     * @return Collection<int, user>
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(user $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris->add($favori);
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(user $favori): self
+    {
+        $this->favoris->removeElement($favori);
+
+        return $this;
+    }
+
 
  
 }
+?>

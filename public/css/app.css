@@ -1,0 +1,61 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #f0f0f0;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 300px;
+  height: 300px;
+  padding: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.music{
+  text-align: center;
+  background-color: #0a162d;
+  width: 25%;
+  height: 85%;
+  position: relative;
+  left: 36%;
+  top: 3em;
+  border-radius: 1em;
+  
+}
+audio{
+  position: relative;
+  left: -23%;
+  top: -3%;
+  background-color: #0b3cae;
+}
+
+.Fav{
+  color: red;
+  position: relative;
+  top: -16em;
+  left: 44%;
+}
+.vinyle{
+  position: relative;
+  top: -8%;
+}
