@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile ;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: MusicRepository::class)]
@@ -43,7 +42,7 @@ class Music
      */
     private $songFile;
 
-    #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'favoris')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favoris')]
     private Collection $favoris;
 
     public function __construct()
@@ -137,14 +136,14 @@ class Music
     }
 
     /**
-     * @return Collection<int, user>
+     * @return Collection<int, User>
      */
     public function getFavoris(): Collection
     {
         return $this->favoris;
     }
 
-    public function addFavori(user $favori): self
+    public function addFavori(User $favori): self
     {
         if (!$this->favoris->contains($favori)) {
             $this->favoris->add($favori);
@@ -153,7 +152,7 @@ class Music
         return $this;
     }
 
-    public function removeFavori(user $favori): self
+    public function removeFavori(User $favori): self
     {
         $this->favoris->removeElement($favori);
 

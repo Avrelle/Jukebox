@@ -155,3 +155,4 @@ class User implements myUser, myPassword
         return $this;
     }
 }
+?>
