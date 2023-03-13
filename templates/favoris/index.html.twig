@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Favoris{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">  
+{% endblock %}
+{% block body %}
+<style>
+</style>
+ <div class="music">
+  <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+      {% for favori in favoris %}
+      
+        <div class="swiper-slide">
+        
+          <img src="{{asset('images/cover/'~ favori.imgSong ~'')}}" />
+          <p class="text-white mt-3">{{favori.title}} {{favori.category}}</p>
+          <img class = "vinyle"src="https://cdn-icons-png.flaticon.com/512/1378/1378161.png" alt="">
+          
+          <audio controls src="{{asset('audio/song/'~ favori.link ~'')}}"></audio>
+        </div>
+         
+        {% endfor %}
+         
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+     
+</div> 
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+ 
+</div> 
+
+{% endblock %}

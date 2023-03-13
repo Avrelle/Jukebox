@@ -34,7 +34,7 @@ class MusicController extends AbstractController
         $entityManager->persist($music);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('app_music');
     }
 
     #[Route('/favoris/remove/{id}', name: 'remove_favoris')]
@@ -47,7 +47,21 @@ class MusicController extends AbstractController
         $em->persist($music);
         $em->flush();
  
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('app_music');
     }
+
+    #[Route('/favoris/playlist', name: 'app_favoris')]
+    public function favoris(): Response
+    {   
+        /** @var $user User */
+        $user = $this->getUser();
+        $favoris = $user->getFavoris();
+
+        return $this->render('favoris/index.html.twig',[
+            'favoris' => $favoris
+        ]);
+    }
+
+    
 }
 ?>
