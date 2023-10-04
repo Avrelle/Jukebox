@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints\Regex;
 
-class PasswordValidationTest extends TestCase
+class PasswordTest extends TestCase
 {
     public function testValidePassword()
     {
