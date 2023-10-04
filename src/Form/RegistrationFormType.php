@@ -44,7 +44,7 @@ class RegistrationFormType extends AbstractType
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
                         'max' => 4096,
                     ]),
-                    /*new Regex([
+                    new Regex([
                         'pattern' => '/^(?=.*?[A-Z])/',
                         'message' => "you need at least 1 upper"
                     ]),
@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
                     new Regex([
                         'pattern' => '/(?=.*?[#?!@$%^&*-])/',
                         'message' => "you need at least 1 special character"
-                    ]),*/
+                    ]),
                 ],
             ])
         ;

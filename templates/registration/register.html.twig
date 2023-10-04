@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<div class="login-box">
+<div class="login-box mt-5 mb-5">
   <h2>Register</h2>
   
   {{ form_start(registrationForm) }}
@@ -19,6 +19,13 @@
       </div>
         {{ form_widget(registrationForm.agreeTerms) }}
     </div>
+    <ul>
+      <li class= "list-group">Infos password :</li>
+      <li class="list-group-item">8 character</li>
+      <li class="list-group-item">1 number</li>
+      <li class="list-group-item">1 uppercase</li>
+      <li class="list-group-item">1 special character</li>
+    </ul>
     <a href="{{path('app_login')}}">
       <span></span>
       <span></span>
